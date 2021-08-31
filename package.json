@@ -2,6 +2,15 @@
   "name": "projzh",
   "version": "0.5.0",
   "description": "Utilities for working with Chinese coordinate reference systems",
+  "scripts": {
+		"test": "tsc && ava ./tests/*.js",
+		"dev": "tsc -w & ava --watch ./tests/*.js",
+		"clean": "del-cli ./dist/",
+		"lint": "eslint ./src/**/*.ts",
+		"compile": "tsc",
+		"build": "yarn clean && yarn lint && yarn compile",
+		"release": "yarn build && np"
+  },
   "keywords": [
     "baidu",
     "mercator",
@@ -20,22 +29,18 @@
     "url": "https://github.com/tschaub/projzh/issues"
   },
   "license": "MIT",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
-    "browserify": "^13.0.0",
-    "code": "^3.0.0",
-    "eslint": "^3.3.0",
-    "eslint-config-tschaub": "^5.0.0",
-    "lab": "^11.1.0",
-    "uglify-js": "^2.6.2"
-  },
-  "scripts": {
-    "pretest": "eslint . --ignore-pattern *.min.js",
-    "test": "lab --leaks test",
-    "prepublish": "npm run bundle",
-    "bundle": "browserify --standalone projzh index.js | uglifyjs --output index.min.js"
-  },
-  "eslintConfig": {
-    "extends": "tschaub"
+		"@types/node": "^16.4.2",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "latest",
+		"ava": "latest",
+		"del-cli": "latest",
+		"eslint": "latest",
+		"eslint-config-prettier": "latest",
+		"eslint-plugin-import": "latest",
+		"np": "latest",
+		"typescript": "next"
   }
 }

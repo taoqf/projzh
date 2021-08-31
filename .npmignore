@@ -1,2 +1,14 @@
-/test/
-/examples/
+.vscode/
+node_modules/
+test/
+src/
+examples/
+tsconfig.json
+.eslintignore 
+.eslintrc.json
+.gitignore
+.npmignore
+.npmrc
+.yarnrc
+*.sh
+*.log
